@@ -1,0 +1,12 @@
+.post{
+    min-height: 300px;
+    margin: 20px 0;
+    >div{
+        display: flex;
+        flex-flow: wrap;
+        a{
+            background-color: brown;
+            
+        }
+    }
+}
