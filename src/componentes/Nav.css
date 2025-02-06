@@ -1,0 +1,23 @@
+ul,li{
+    list-style: none;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 5px 5px black;
+    padding: 20px;
+}
+ul{
+    display: flex;
+    li{
+        margin-left: 20px;
+        a{
+            text-decoration: none;
+            text-transform: uppercase;
+            background-color: brown;
+            color: whitesmoke;
+            padding: 10px;
+        }
+    }
+}

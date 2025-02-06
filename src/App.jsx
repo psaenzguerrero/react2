@@ -3,6 +3,12 @@ import Card from './componentes/Card'
 import Hijo from './componentes/Hijo'
 import Componente2 from './componentes/Componente2'
 import Post from './componentes/Post'
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Contact from './pages/Contact'
+import Soporte from './pages/Soporte'
+import Error from './pages/Error'
+import Nav from './componentes/Nav'
 
 function App() {
   // const users= 
@@ -35,7 +41,14 @@ function App() {
       {/* <button onClick={ocultarMostrar}>{estado? "Ocultar" : "Mostrar"}</button>
       {estado && <Componente2/>} */}
      
-     <Post/> 
+     {/* <Post/>  */}
+     <Nav/>
+     <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/contacto' element={<Contact/>}/>
+        <Route path='/soporte' element={<Soporte/>}/>
+        <Route path='*' element={<Error/>}/>
+     </Routes>
     </>
   )
 }

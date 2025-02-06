@@ -3,26 +3,29 @@ import './Post.css'
 import Buscador from './Buscador.jsx'
 
 const Post = () => {
-    const [Posts, setPosts] = useState([])
-    const [escrito, setEscrito] = useState("");
-    function login(escrito){
-        setEscrito(escrito);
-    }
+    const [Posts, setPosts] = useState([]);
+    const [filtro, setFiltro] = useState("");
+
     useEffect(()=>{
         console.log("llamo a la api");
         fetch("https://jsonplaceholder.typicode.com/posts")
         .then(respuesta => respuesta.json())
         .then(datos=>setPosts(datos))
     },[])
+    let entradasFiltradas = Posts.filter(entrada=>
+        entrada.title.toLowerCase().includes(filtro.toLowerCase())
 
-    
+    );
+ 
   return (
     <>
-        <Buscador dameEscrito={login}/>
         <div className="container border p-5">
             <div className="row p-4">
+                <div>
+                    <Buscador setFiltro={setFiltro}/>
+                </div>
                 {
-                    Posts.map(post => {
+                    entradasFiltradas.map(post => {
                         return(
                             <div className='col-md-4' key = {post.id}>
                                 <div className="card post">
@@ -38,8 +41,6 @@ const Post = () => {
                 }
             </div>
         </div>
-        
-
     </>
   )
 }
